@@ -7,12 +7,12 @@ class Program
     {
         Console.WriteLine("Hello Prep3 World!");
         Random randomGenerator = new Random();
-        int magicNumber = randomGenerator.Next(1, 11);
+        int magicNumber = randomGenerator.Next(1, 101);
         int number = -1;
         // int count;
         while (number != magicNumber)
             {
-                Console.Write("What number do you guess between 1 and 10? ");
+                Console.Write("What number do you guess between 1 and 100? ");
                 number = int.Parse(Console.ReadLine());
                 if (number > magicNumber) 
                 {
