@@ -1,0 +1,37 @@
+create a journaling program
+the journal entry
+ options
+    1. load entry
+    2. save entry
+    3. new entry
+    4. list entries
+    5. exit
+prompt for journaling entry
+selecting 5
+
+classes
+    journal
+        atributes
+            entries
+        behaviors
+            add entry
+            list entries
+            save entry
+            load file
+
+    program
+        atributes
+            prompt list
+        behaviors
+            main
+                 menu
+            write entry
+             
+    entry
+        atributes
+             date
+             prompt
+             response
+        behaviors
+            display entry
+            save to file
