@@ -1,0 +1,30 @@
+program
+    attributes
+        menu options
+    behaviors
+        show menu
+        hide random words
+        quit
+        menu options
+
+scriptue
+    attributes
+        reference
+        rext
+        verse
+    behaviors
+        show text
+
+reference
+    attributes
+        Book 
+        Number
+    behaviors
+
+words
+    attributes
+        word
+        hidden (Boolean)
+    behaviors
+        show word
+        hide word
