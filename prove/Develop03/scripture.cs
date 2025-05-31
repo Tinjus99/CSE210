@@ -1,28 +1,44 @@
 // scripture has reverence and list of verses
 public class Scripture
 {
-    private string _reference;
-    private List<Verse> _verses;
+    private VerseReference _reference;
+    private List<Word> _words;
+    private Random _random;
 
-    public Scripture(string reference)
+    public Scripture(VerseReference reference, string text)
     {
         _reference = reference;
+        _words = text.Split(' ').Select(word => new Word(word)).ToList();
+        _random = new Random();
+    }
 
-        _verses = new List<Verse>();
-        foreach (string verse in _verses)
+    public void Display()
+    {
+        Console.WriteLine(_reference.ToString());
+        foreach (var word in _words)
         {
-            _verses.Add(new Verse(verse));
+            Console.Write(word.GetDisplayText() + " ");
+        }
+        Console.WriteLine("\n");
+    }
+
+    public void HideRandomWords(int count)
+    {
+        var visibleWords = _words.Where(w => !w.IsHidden()).ToList();
+
+        if (visibleWords.Count == 0)
+            return;
+
+        for (int i = 0; i < count && visibleWords.Count > 0; i++)
+        {
+            int index = _random.Next(visibleWords.Count);
+            visibleWords[index].Hide();
+            visibleWords.RemoveAt(index);
         }
     }
 
-    public Scripture(StreamReader reader)
+    public bool AllWordsHidden()
     {
-        _reference = reader.ReadLine();
-
-        while (!reader.EndOfStream)
-        {
-            string text = reader.ReadLine().Trim();
-            _verses.Add(new Verse(text));
-        }
+        return _words.All(w => w.IsHidden());
     }
 }

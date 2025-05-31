@@ -1,14 +1,27 @@
 // words have boolean and text 
 public class Word
 {
-    private string _word;
-    private bool _hidden;
+    private string _text;
+    private bool _Hidden;
 
-
-
-    public Word(string word)
+    public Word(string text)
     {
-        _word = word;
-        _hidden = false;
+        _text = text;
+        _Hidden = false;
+    }
+
+    public void Hide()
+    {
+        _Hidden = true;
+    }
+
+    public bool IsHidden()
+    {
+        return _Hidden;
+    }
+
+    public string GetDisplayText()
+    {
+        return _Hidden ? new string('_', _text.Length) : _text;
     }
 }

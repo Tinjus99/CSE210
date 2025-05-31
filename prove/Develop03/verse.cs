@@ -1,13 +1,34 @@
 // verse has list of words
-public class Verse
+public class VerseReference
 {
-    private List<Word> _words;
-    public Verse(string text)
+    public string Book { get; private set; }
+    public int Chapter { get; private set; }
+    public int StartVerse { get; private set; }
+    public int? EndVerse { get; private set; }
+
+    // Constructor for single verse
+    public VerseReference(string book, int chapter, int startVerse)
     {
-        string[] parts = text.Split();
-        foreach (string part in parts)
-        {
-            _words.Add(new Word(part));
-        }
+        Book = book;
+        Chapter = chapter;
+        StartVerse = startVerse;
+        EndVerse = null;
+    }
+
+    // Constructor for verse range
+    public VerseReference(string book, int chapter, int startVerse, int endVerse)
+    {
+        Book = book;
+        Chapter = chapter;
+        StartVerse = startVerse;
+        EndVerse = endVerse;
+    }
+
+    public override string ToString()
+    {
+        if (EndVerse.HasValue)
+            return $"{Book} {Chapter}:{StartVerse}-{EndVerse}";
+        else
+            return $"{Book} {Chapter}:{StartVerse}";
     }
 }
