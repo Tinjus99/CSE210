@@ -1,0 +1,28 @@
+create a program that helps people who are on the edge of an overload
+
+
+base
+    name : string
+    description :string
+    duration : int
+    begin message : sting
+    end message : string
+    start() :void
+    stop() :void
+    showanimation() :void
+
+breathing
+    excercise messages<string>
+    breathe() :void
+    animation() :void
+    breathing()
+
+refelction
+    prompts<string
+    question<string>
+    reflection()
+
+listing
+    prompts<string>
+    count() :void
+    listing()
