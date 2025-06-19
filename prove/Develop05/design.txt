@@ -1,0 +1,22 @@
+Eternal Quest Program
+
+goals
+
+    simple
+
+    Eternal
+
+    checklist
+
+
+
+  
+display score
+
+new goals
+
+list goals
+
+save goals
+
+load goals
